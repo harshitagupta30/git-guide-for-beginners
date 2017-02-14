@@ -37,7 +37,7 @@ Forking a repository is really straightforward:
 3. Click the Fork button on the upper right-hand side of the repository’s page.
 
 <div style="text-align:center">
-<img src = ""
+<img src = "https://github.com/harshitagupta30/git-guide-for-beginners/blob/master/images/VWFCB.png"
 style="height:50px;">
 </div>
 <br />
