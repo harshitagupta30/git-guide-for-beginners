@@ -4,7 +4,7 @@ This is a guide containing tricks which can help you to overcome your git fear.
 
 ##Table of Contents:
 
-1. Forking a GitHub repository
+1. [Forking a GitHub repository](#forking-a-github-repository)
  
  * Forking a repository
  * Forking a particular branch of a repository
@@ -32,6 +32,7 @@ This is a guide containing tricks which can help you to overcome your git fear.
 Forking it is basically making a copy of the repository, but with a link back to the original. 
 
 Forking a repository is really straightforward:
+
 1. Make sure you’re logged into GitHub with your account.
 2. Find the GitHub repository with which you’d like to work.
 3. Click the Fork button on the upper right-hand side of the repository’s page.
@@ -48,7 +49,8 @@ Now you have a copy of the original repository in your GitHub account but to mak
 
 On running this Git will copy down the repository, both contents and commit history, to your system. It will also add a Git remote called origin that points back to the forked repository in your GitHub account.
 
-Now, if you want to clone some particular branch of your repository then you should use 
+Now, if you want to clone some particular branch of your repository then use this instead of the above one
+
 `git clone -b <branch> <your ssh/git url>`
 
 
