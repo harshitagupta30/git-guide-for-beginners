@@ -61,7 +61,7 @@ To add a Git remote pointing back to the original repository (the one you forked
 
 ` git remote add upstream <your ssh/git url> `
 
-or Suppose you want to point at some particular branch let's say `master`, then  use it like this : 
+or Suppose you want to point at some particular branch let's say `master`, then  use it like this: 
 
 ` git remote add --track master upstream < your ssh/git url> `
 
@@ -74,3 +74,15 @@ Then, to merge it into your own project, type:
 ` git merge upstream/master `
 
 Now you'll have an up-to-date version of the upstream code in your current branch.
+
+
+##Setting up a branch and working with it
+
+Now you're getting ready to start hacking, you'll want to switch off of the 'master' branch and onto a different branch for your new feature. It's **important** to do this because you can only have one **Pull Request per branch**, so if you want to submit more than one fix, you'll need to have multiple branches and which can be created like this: 
+
+`git branch newfeature`
+
+Then switch to it like this:
+
+`git checkout newfeature`
+
