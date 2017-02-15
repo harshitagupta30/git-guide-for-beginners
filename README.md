@@ -11,7 +11,9 @@ This is a guide containing tricks which can help you to overcome your git fear.
 
 2. [How to connect to original project / Setting up remote](#setting-up-remote)
 
-3. Branching and pull requests
+3. [Working with Branches](#setting-up-a-branch-and-working-with-it)
+
+4. [Opening a Pull Request](#opening-a-pull-request)
 
 5. Merge conflicts
   
@@ -92,6 +94,7 @@ Or to do this whole thing in one command you can do like this:
 
 `git checkout -b <newfeature>`
 
+
 ##Pushing changes to GitHub
 
 So let’s say you’ve made the changes necessary to implement the specific feature or enhancement (the one “logical change”), and you’ve committed the changes to your local repository. The next step is to push those changes back up to GitHub.
@@ -103,5 +106,10 @@ If you were working in a branch called new-feature, then pushing the changes you
 The generic form of this command is
 
 `git push <remote> <branch>`
+
+
+##Opening a Pull Request
+
+Once you push a new branch up to your repository, GitHub will prompt you to create a pull request (I’m assuming you’re using your browser and not the GitHub native apps). The maintainers of the original project can use this pull request to pull your changes across to their repository and, if they approve of the changes, merge them into the main repository.
 
 
