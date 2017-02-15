@@ -78,6 +78,8 @@ Now you'll have an up-to-date version of the upstream code in your current branc
 
 ##Setting up a branch and working with it
 
+**Branch ** is a way to create a separate line of changes that is independent from the main line (often referred to as “master”).
+
 Now you're getting ready to start hacking, you'll want to switch off of the `master` branch and onto a different branch for your _new feature_. It's **important** to do this because you can only have one **Pull Request per branch**, so if you want to submit more than one fix, you'll need to have multiple branches and which can be created like this: 
 
 `git branch <newfeature>`
@@ -86,7 +88,20 @@ Then switch to it like this:
 
 `git checkout newfeature`
 
-Or to do this whole thing in one you can do like this:
+Or to do this whole thing in one command you can do like this:
 
 `git checkout -b <newfeature>`
+
+##Pushing changes to GitHub
+
+So let’s say you’ve made the changes necessary to implement the specific feature or enhancement (the one “logical change”), and you’ve committed the changes to your local repository. The next step is to push those changes back up to GitHub.
+
+If you were working in a branch called new-feature, then pushing the changes you made in that branch back to GitHub would look like this:
+
+`git push origin <newfeature>`
+
+The generic form of this command is
+
+`git push <remote> <branch>`
+
 
