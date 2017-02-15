@@ -78,11 +78,15 @@ Now you'll have an up-to-date version of the upstream code in your current branc
 
 ##Setting up a branch and working with it
 
-Now you're getting ready to start hacking, you'll want to switch off of the 'master' branch and onto a different branch for your new feature. It's **important** to do this because you can only have one **Pull Request per branch**, so if you want to submit more than one fix, you'll need to have multiple branches and which can be created like this: 
+Now you're getting ready to start hacking, you'll want to switch off of the `master` branch and onto a different branch for your _new feature_. It's **important** to do this because you can only have one **Pull Request per branch**, so if you want to submit more than one fix, you'll need to have multiple branches and which can be created like this: 
 
-`git branch newfeature`
+`git branch <newfeature>`
 
 Then switch to it like this:
 
 `git checkout newfeature`
+
+Or to do this whole thing in one you can do like this:
+
+`git checkout -b <newfeature>`
 
