@@ -9,7 +9,7 @@ This is a guide containing tricks which can help you to overcome your git fear.
  * Forking a repository
  * Forking a particular branch of a repository
 
-2. How to connect to original project / Setting up remote
+2. [How to connect to original project / Setting up remote](#setting-up-remote)
 
 3. Branching and pull requests
 
@@ -54,3 +54,23 @@ Now, if you want to clone some particular branch of your repository then use thi
 `git clone -b <branch> <your ssh/git url>`
 
 
+##Setting up remote
+
+Git already added a Git remote named origin to the clone of the Git repository on your system, and this will allow you to push changes back up to the forked repository in your GitHub account using git commit (to add commits locally) and git push.
+To add a Git remote pointing back to the original repository (the one you forked on GitHub) , like this:
+
+` git remote add upstream <your ssh/git url> `
+
+or Suppose you want to point at some particular branch let's say `master`, then  use it like this : 
+
+` git remote add --track master upstream < your ssh/git url> `
+
+This will add the original project as a remote named 'upstream'. To get/update the code, type:
+
+` git fetch upstream `
+
+Then, to merge it into your own project, type:
+
+` git merge upstream/master `
+
+Now you'll have an up-to-date version of the upstream code in your current branch.
