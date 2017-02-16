@@ -120,24 +120,24 @@ Once you push a new branch up to your repository, GitHub will prompt you to crea
 A typical merge conflict message looks like this:
 
 `$ git checkout newfeature
-#Switched to branch 'newfeature'
+Switched to branch 'newfeature'
 $ git merge master
-#Auto-merging filename.java
-#CONFLICT (content): Merge conflict in filename.java
-#Automatic merge failed; fix conflicts and then commit the result.`
+Auto-merging filename.java
+CONFLICT (content): Merge conflict in filename.java
+Automatic merge failed; fix conflicts and then commit the result.`
 
 When faced with a merge conflict, the first step is to understand the reason behind the conflict. Git tells you that you have "unmerged paths" (which is just another way of telling you that you have one or more conflicts) via "git status" which looks like this :
 
 `$ git status
-# On branch newfeature 
-# You have unmerged paths.
-#  (fix conflicts and run "git commit")
-#
-# Unmerged paths:
-#  (use "git add <file>..." to mark resolution)
-#  
-#      both modified: filename.java
-#
+On branch newfeature 
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+  
+      both modified: filename.java
+
 no changes added to commit (use "git add" and/or "git commit -a") `
 
 Now it's the time to have a look at the contents of the conflicted file. Git marks the problematic area in the file by enclosing it in `<<<<<<< HEAD" and ">>>>>>> [other/branch/name]`.
