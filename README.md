@@ -13,20 +13,21 @@ This is a guide containing tricks which can help you to overcome your git fear.
 
 3. [Working with Branches](#setting-up-a-branch-and-working-with-it)
 
-4. [Opening a Pull Request](#opening-a-pull-request)
-
-5. [Merge conflicts](#merge-conflicts)
+4. [Merge conflicts](#merge-conflicts)
   
   * [Resolving merge conflicts after the PR sent and other commits get merged leading to conflicts](#resolving-merge-conflicts-after-the-pr-has-been-sent-without-creating-a-new-commit)
 
-6. [Squashing Commits](#squashing-the-commits)
+5. [Squashing Commits](#squashing-the-commits)
 
-7. Undoing commits
+6. [Submitting a Pull Request](#submitting-a-pull-request)
+
+7. [Renaming the commit message after push](#renaming-a-commit-message-after-push)
+
+8. Undoing commits
   
   * Deleting commits locally
   * Deleting commits after been pushed to remote
 
-8. Changing the commit message after push
 
 ## Forking a Github Repository
 
@@ -105,11 +106,6 @@ If you were working in a branch called new-feature, then pushing the changes you
 The generic form of this command is
 
 `git push <remote> <branch>`
-
-
-##Opening a Pull Request
-
-Once you push a new branch up to your repository, GitHub will prompt you to create a pull request (I’m assuming you’re using your browser and not the GitHub native apps). The maintainers of the original project can use this pull request to pull your changes across to their repository and, if they approve of the changes, merge them into the main repository.
 
 
 ##Merge Conflicts
@@ -242,5 +238,26 @@ To squash those commits into one, change to something like this:
 
 Then, save/quit, and you'll be brought to into another editor session, describe the changes as well as you can and save/quit again. Now you're commits are squashed into one and you're ready to submit a `pull request`.
 
+
+##Submitting a Pull Request
+
+Once you've commited and squashed your changes, push them to your remote like this:
+
+`git push origin newfeature`
+
+Once you push a new branch up to your repository, GitHub will prompt you to create a pull request (assuming that you’re using your browser and not the GitHub native apps). The maintainers of the original project can use the pull request to pull your changes across to their repository and, if they approve of the changes, merge them into the main repository.
+
+Then, click on the little button that says 'Pull Request'. This will bring you to a page asking you to describe your change. Describe it thoroughly.
+
+
+##Renaming a commit message after pushed
+
+Sometimes after sending a pull request you just realised that the you've made an error while writing a commit message and the project maintainer has asked you to rename it which you can do like this:
+
+`git commit --amend -m "New commit message"`
+
+and then to push it back to the upstream and update your pull request which can be done like this:
+
+`git push --force origin newfeature`
 
 
