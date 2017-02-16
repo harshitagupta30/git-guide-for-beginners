@@ -113,3 +113,35 @@ The generic form of this command is
 Once you push a new branch up to your repository, GitHub will prompt you to create a pull request (I’m assuming you’re using your browser and not the GitHub native apps). The maintainers of the original project can use this pull request to pull your changes across to their repository and, if they approve of the changes, merge them into the main repository.
 
 
+##Merge Conflicts
+
+**Merging** is the act of integrating another branch into your current working branch. While working on a shared project sometimes it happens that two people changed the same lines in that same file, or one of the person decided to delete it while the other person decided to modify it, _Git_ simply cannot know what is correct. So it marks the file as having a conflict - which we'll have to solve before we can continue our work.
+
+A typical merge conflict message looks like this:
+
+`$ git checkout newfeature
+#Switched to branch 'newfeature'
+$ git merge master
+#Auto-merging filename.java
+#CONFLICT (content): Merge conflict in filename.java
+#Automatic merge failed; fix conflicts and then commit the result.`
+
+When faced with a merge conflict, the first step is to understand the reason behind the conflict. Git tells you that you have "unmerged paths" (which is just another way of telling you that you have one or more conflicts) via "git status" which looks like this :
+
+`$ git status
+# On branch newfeature 
+# You have unmerged paths.
+#  (fix conflicts and run "git commit")
+#
+# Unmerged paths:
+#  (use "git add <file>..." to mark resolution)
+#  
+#      both modified: filename.java
+#
+no changes added to commit (use "git add" and/or "git commit -a") `
+
+Now it's the time to have a look at the contents of the conflicted file. Git marks the problematic area in the file by enclosing it in `<<<<<<< HEAD" and ">>>>>>> [other/branch/name]`.
+
+The contents after the first marker originate from your current working branch. After the angle brackets, Git tells us where (from which branch) the changes came from. A line with "=======" separates the two conflicting changes. Our task is to identify and decide which piece of code is required and which is to be removed.
+
+
