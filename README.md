@@ -120,28 +120,84 @@ Once you push a new branch up to your repository, GitHub will prompt you to crea
 A typical merge conflict message looks like this:
 
 `$ git checkout newfeature
+
 Switched to branch 'newfeature'
+
 $ git merge master
+
 Auto-merging filename.java
+
 CONFLICT (content): Merge conflict in filename.java
+
 Automatic merge failed; fix conflicts and then commit the result.`
 
 When faced with a merge conflict, the first step is to understand the reason behind the conflict. Git tells you that you have "unmerged paths" (which is just another way of telling you that you have one or more conflicts) via "git status" which looks like this :
 
 `$ git status
+
 On branch newfeature 
+
 You have unmerged paths.
-  (fix conflicts and run "git commit")
+
+(fix conflicts and run "git commit")
+
 
 Unmerged paths:
-  (use "git add <file>..." to mark resolution)
-  
+
+(use "git add <file>..." to mark resolution)
+
+
       both modified: filename.java
 
-no changes added to commit (use "git add" and/or "git commit -a") `
+
+no changes added to commit (use "git add" and/or "git commit -a")`
+
 
 Now it's the time to have a look at the contents of the conflicted file. Git marks the problematic area in the file by enclosing it in `<<<<<<< HEAD" and ">>>>>>> [other/branch/name]`.
 
 The contents after the first marker originate from your current working branch. After the angle brackets, Git tells us where (from which branch) the changes came from. A line with "=======" separates the two conflicting changes. Our task is to identify and decide which piece of code is required and which is to be removed.
+
+
+###Resolving merge conflicts after the PR has been sent without creating a new commit  
+
+Many times while working, we feel the requriment of updating our code, so that we can have an up-to-date version of the upstream code in our current branch. During the process of merging the two codes, the one on which we are working and the another which has been fetched from the remote, Git creates a commit by itself which looks like this: 
+
+`Merge master into newfeature.`
+
+ Also, you submitted a Pull Request to the main repository but before the request could be merged, changes were made in the repository and now your PR presents merge conflicts. You could fetch the work, resolve merge conflicts and push again but that will lead to `MERGE COMMIT` which you don't want to create because Git doesn't allow rebasing for merge commits so there is no way to rebase it into the previous commit.
+ 
+So, to avoid this you have to follow the following steps:
+
+- Checkout your branch on which you want to update the code
+
+`git checkout newfeature`
+
+- Fetch the changes from the upstream code
+
+`git fetch upstream`
+
+- Remove/Stash any local changes, if any 
+
+`git stash`
+
+- Rebase to the latest branch in upstream (let say master in this case)
+
+`git rebase upstream/master`
+
+And suppose in between any merge conflicts occur then 
+
+- Fix the conflicts in the project then add the files by using 
+
+`git add <file name>` or `git checkout -- <file name>`
+
+- After the changes have been fixed run 
+
+`git rebase --continue`
+
+Now the changes from the upstream have been applied and the work/ local changes you made has been applied on top of it
+
+- Force push to your branch to update the PR by using
+
+`git push --force origin newfeature`
 
 
