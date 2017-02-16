@@ -19,7 +19,7 @@ This is a guide containing tricks which can help you to overcome your git fear.
   
   * [Resolving merge conflicts after the PR sent and other commits get merged leading to conflicts](#resolving-merge-conflicts-after-the-pr-has-been-sent-without-creating-a-new-commit)
 
-6. Squashing Commits
+6. [Squashing Commits](#squashing-the-commits)
 
 7. Undoing commits
   
@@ -198,4 +198,49 @@ Now the changes from the upstream have been applied and the work/ local changes 
 - Force push to your branch to update the PR by using
 
 `git push --force origin newfeature`
+
+
+###Undoing a merge
+
+You can return to the state before you started the merge at any time like this: 
+
+`git merge --abort`
+
+or in case you've made a mistake while resolving a conflict and realize this only after completing the merge, you can still easily undo it like this:
+
+`git reset --HARD`
+
+It just roll back to the commit before the merge happened and start over again.
+
+
+##Squashing the commits
+
+Often while working on a feature you might create multiple commits but usually it is expected to submit entire feature change is in the form of one single commit before sending pull request back upstream. To squash all the commits into one we do rebasing. 
+
+First, you need to take a look at the commits you've made with `git log` and figure out the commits that you want to squash. If you wanted to squash the into one, you'd open up an an interactive rebase like this:
+
+` git rebase -i HEAD~3`
+
+where -i is for interactive rebase
+      ~3 stands for the number of commits you want to squash
+      
+The above command will bring you into your editor with some text that will look something like this:
+
+`pick df94881 Allow install to SD` 
+ 
+`pick a7323e5 README newfeature`
+
+`pick 3ead26f rm classpath from git` 
+
+To squash those commits into one, change to something like this:
+
+`pick df94881 Allow install to SD` 
+ 
+`squash a7323e5 README newfeature`
+
+`squash 3ead26f rm classpath from git` 
+
+Then, save/quit, and you'll be brought to into another editor session, describe the changes as well as you can and save/quit again. Now you're commits are squashed into one and you're ready to submit a `pull request`.
+
+
 
