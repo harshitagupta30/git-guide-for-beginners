@@ -15,10 +15,9 @@ This is a guide containing tricks which can help you to overcome your git fear.
 
 4. [Opening a Pull Request](#opening-a-pull-request)
 
-5. Merge conflicts
+5. [Merge conflicts](#merge-conflicts)
   
-  * Resolving merge conflicts without creating new commit.
-  * Fixing PR when other changes get merged leading to conflicts
+  * [Resolving merge conflicts after the PR sent and other commits get merged leading to conflicts](#resolving-merge-conflicts-after-the-pr-has-been-sent-without-creating-a-new-commit)
 
 6. Squashing Commits
 
@@ -80,7 +79,7 @@ Now you'll have an up-to-date version of the upstream code in your current branc
 
 ##Setting up a branch and working with it
 
-**Branch ** is a way to create a separate line of changes that is independent from the main line (often referred to as “master”).
+**Branch** is a way to create a separate line of changes that is independent from the main line (often referred to as “master”).
 
 Now you're getting ready to start hacking, you'll want to switch off of the `master` branch and onto a different branch for your _new feature_. It's **important** to do this because you can only have one **Pull Request per branch**, so if you want to submit more than one fix, you'll need to have multiple branches and which can be created like this: 
 
@@ -119,38 +118,38 @@ Once you push a new branch up to your repository, GitHub will prompt you to crea
 
 A typical merge conflict message looks like this:
 
-`$ git checkout newfeature
+`$ git checkout newfeature`
 
-Switched to branch 'newfeature'
+`Switched to branch 'newfeature'`
 
-$ git merge master
+`$ git merge master`
 
-Auto-merging filename.java
+`Auto-merging filename.java`
 
-CONFLICT (content): Merge conflict in filename.java
+`CONFLICT (content): Merge conflict in filename.java`
 
-Automatic merge failed; fix conflicts and then commit the result.`
+`Automatic merge failed; fix conflicts and then commit the result.`
 
 When faced with a merge conflict, the first step is to understand the reason behind the conflict. Git tells you that you have "unmerged paths" (which is just another way of telling you that you have one or more conflicts) via "git status" which looks like this :
 
-`$ git status
+`$ git status`
 
-On branch newfeature 
+`On branch newfeature`
 
-You have unmerged paths.
+`You have unmerged paths`
 
-(fix conflicts and run "git commit")
-
-
-Unmerged paths:
-
-(use "git add <file>..." to mark resolution)
+`(fix conflicts and run "git commit")`
 
 
-      both modified: filename.java
+`Unmerged paths:`
+
+`(use "git add <file>..." to mark resolution)`
 
 
-no changes added to commit (use "git add" and/or "git commit -a")`
+      `both modified: filename.java`
+
+
+`no changes added to commit (use "git add" and/or "git commit -a")`
 
 
 Now it's the time to have a look at the contents of the conflicted file. Git marks the problematic area in the file by enclosing it in `<<<<<<< HEAD" and ">>>>>>> [other/branch/name]`.
@@ -199,5 +198,4 @@ Now the changes from the upstream have been applied and the work/ local changes 
 - Force push to your branch to update the PR by using
 
 `git push --force origin newfeature`
-
 
