@@ -23,11 +23,8 @@ This is a guide containing tricks which can help you to overcome your git fear.
 
 7. [Renaming the commit message after push](#renaming-a-commit-message-after-push)
 
-8. Undoing commits
+8. [Undoing commits](#permanently-removing-commit-from-remote-branch-/-revert-a-commit-already-pushed-to-a-remote-repository)
   
-  * Deleting commits locally
-  * Deleting commits after been pushed to remote
-
 
 ## Forking a Github Repository
 
@@ -306,11 +303,11 @@ Let's say the bad commit `dd61ab32` is not the top commit, but a slightly older 
 
 This will open an editor and show a list of all commits since the commit we want to get rid of:
 
-`pick dd61ab32
+`pick dd61ab32`
 
-pick dsadhj278
+`pick dsadhj278`
 
-... `
+`... `
 
 Simply remove the line with the offending commit, likely that will be the first line _(vi: delete current line = dd)_. Save and close the editor _(vi: press :wq and return)_. T
 
