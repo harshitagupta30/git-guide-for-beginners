@@ -261,3 +261,46 @@ and then to push it back to the upstream and update your pull request which can 
 `git push --force origin newfeature`
 
 
+##Permanently removing commit from remote branch / Revert a commit already pushed to a remote repository
+
+Reverting a commit means to create a new commit that undoes all changes that were made in the bad commit.
+You've just pushed your local branch to a remote branch, but then realized that one of the commits should not be there, or that there was some unacceptable typo in it. This can be fixed in many ways.
+
+- Correct the mistake in a new commit
+
+Simply remove or fix the bad file in a new commit and push it to the remote repository.
+
+- Revert the full commit
+
+Sometimes you may want to undo a whole commit with all changes. Instead of going through all the changes manually, you can simply tell git to revert a commit, which does not even have to be the last one. The bad commit remains there, but it no longer affects the the current master and any future commits on top of it. You can revert a commit like this:
+
+`$ git revert dd61ab32`
+
+where `dd61ab32` is the commit id.
+
+- Revert the full commit with history rewriting 
+  
+  *Delete the last commit
+
+Let's say we have a remote `https://github.com/harshitagupta30/open-event-android.git` with branch development that currently points to commit `dd61ab32`. We want to remove the top commit which we can do like this: 
+
+`git push https://github.com/harshitagupta30/open-event-android.git +dd61ab32^:develpoment`
+
+Where git interprets x^ as the parent of x and + as a forced non-fastforward push. 
+
+If you have the development branch checked out locally, you can also do it in two simpler steps: 
+
+1. First reset the branch to the parent of the current commit
+
+`git reset HEAD^ --hard`
+
+2. Force-push it to the remote.
+
+` git push https://github.com/harshitagupta30/open-event-android.git -f` 
+
+
+
+
+
+
+
