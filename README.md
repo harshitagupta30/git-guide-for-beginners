@@ -277,7 +277,7 @@ where `dd61ab32` is the commit id.
 
 - Revert the full commit with history rewriting 
   
-  1.Delete the last commit
+####Delete the last commit
   
 Let's say we have a remote `https://github.com/harshitagupta30/open-event-android.git` with branch development that currently points to commit `dd61ab32`. We want to remove the top commit which we can do like this: 
 
@@ -287,15 +287,15 @@ Where git interprets x^ as the parent of x and + as a forced non-fastforward pus
 
 If you have the development branch checked out locally, you can also do it in two simpler steps: 
 
-1. First reset the branch to the parent of the current commit
+First reset the branch to the parent of the current commit
 
 `git reset HEAD^ --hard`
 
-2. Force-push it to the remote.
+Force-push it to the remote.
 
 `git push https://github.com/harshitagupta30/open-event-android.git -f` 
 
- 2. Delete the second last/any commit
+####Delete the second last/any commit
  
 Let's say the bad commit `dd61ab32` is not the top commit, but a slightly older one, e.g. the second last one. You want to remove it, but keep all commits that followed it. In other words, you want to rewrite the history and force the result back to `remote/master`. The easiest way to rewrite history is to do an interactive rebase down to the parent of the offending commit like this:
 
