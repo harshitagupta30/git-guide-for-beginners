@@ -111,17 +111,17 @@ The generic form of this command is
 
 A typical merge conflict message looks like this:
 
-`$ git checkout newfeature`
+`$ git checkout newfeature
 
-`Switched to branch 'newfeature'`
+Switched to branch 'newfeature'
 
-`$ git merge master`
+$ git merge master
 
-`Auto-merging filename.java`
+Auto-merging filename.java
 
-`CONFLICT (content): Merge conflict in filename.java`
+CONFLICT (content): Merge conflict in filename.java
 
-`Automatic merge failed; fix conflicts and then commit the result.`
+Automatic merge failed; fix conflicts and then commit the result.`
 
 When faced with a merge conflict, the first step is to understand the reason behind the conflict. Git tells you that you have "unmerged paths" (which is just another way of telling you that you have one or more conflicts) via "git status" which looks like this :
 
