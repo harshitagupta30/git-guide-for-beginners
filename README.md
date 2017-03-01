@@ -319,6 +319,14 @@ Resolve any conflicts if there are any, and your local branch should be fixed. F
 
 
 
+###Renaming a branch
+You can rename the current branch like this: 
+
+`git branch -m old-name-of-branch-on-github new-name-for-branch-you-want`
+
+
+
+
 
 
 
