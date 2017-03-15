@@ -2,7 +2,7 @@
 
 This is a guide containing tricks which can help you to overcome your git fear.  
 
-##Table of Contents:
+## Table of Contents:
 
 1. [Forking a GitHub repository](#forking-a-github-repository)
  
@@ -53,7 +53,7 @@ Now, if you want to clone some particular branch of your repository then use thi
 `git clone -b <branch> <your ssh/git url>`
 
 
-##Setting up remote
+## Setting up remote
 
 Git already added a Git remote named origin to the clone of the Git repository on your system, and this will allow you to push changes back up to the forked repository in your GitHub account using git commit (to add commits locally) and git push.
 To add a Git remote pointing back to the original repository (the one you forked on GitHub) , like this:
@@ -75,7 +75,7 @@ Then, to merge it into your own project, type:
 Now you'll have an up-to-date version of the upstream code in your current branch.
 
 
-##Setting up a branch and working with it
+## Setting up a branch and working with it
 
 **Branch** is a way to create a separate line of changes that is independent from the main line (often referred to as “master”).
 
@@ -105,7 +105,7 @@ The generic form of this command is
 `git push <remote> <branch>`
 
 
-##Merge Conflicts
+## Merge Conflicts
 
 **Merging** is the act of integrating another branch into your current working branch. While working on a shared project sometimes it happens that two people changed the same lines in that same file, or one of the person decided to delete it while the other person decided to modify it, _Git_ simply cannot know what is correct. So it marks the file as having a conflict - which we'll have to solve before we can continue our work.
 
@@ -150,7 +150,7 @@ Now it's the time to have a look at the contents of the conflicted file. Git mar
 The contents after the first marker originate from your current working branch. After the angle brackets, Git tells us where (from which branch) the changes came from. A line with "=======" separates the two conflicting changes. Our task is to identify and decide which piece of code is required and which is to be removed.
 
 
-###Resolving merge conflicts after the PR has been sent without creating a new commit  
+### Resolving merge conflicts after the PR has been sent without creating a new commit  
 
 Many times while working, we feel the requriment of updating our code, so that we can have an up-to-date version of the upstream code in our current branch. During the process of merging the two codes, the one on which we are working and the another which has been fetched from the remote, Git creates a commit by itself which looks like this: 
 
@@ -193,7 +193,7 @@ Now the changes from the upstream have been applied and the work/ local changes 
 `git push --force origin newfeature`
 
 
-###Undoing a merge
+### Undoing a merge
 
 You can return to the state before you started the merge at any time like this: 
 
@@ -206,7 +206,7 @@ or in case you've made a mistake while resolving a conflict and realize this onl
 It just roll back to the commit before the merge happened and start over again.
 
 
-##Squashing the commits
+## Squashing the commits
 
 Often while working on a feature you might create multiple commits but usually it is expected to submit entire feature change is in the form of one single commit before sending pull request back upstream. To squash all the commits into one we do rebasing. 
 
@@ -236,7 +236,7 @@ To squash those commits into one, change to something like this:
 Then, save/quit, and you'll be brought to into another editor session, describe the changes as well as you can and save/quit again. Now you're commits are squashed into one and you're ready to submit a `pull request`.
 
 
-##Submitting a Pull Request
+## Submitting a Pull Request
 
 Once you've commited and squashed your changes, push them to your remote like this:
 
@@ -247,7 +247,7 @@ Once you push a new branch up to your repository, GitHub will prompt you to crea
 Then, click on the little button that says 'Pull Request'. This will bring you to a page asking you to describe your change. Describe it thoroughly.
 
 
-##Renaming a commit message after pushed
+## Renaming a commit message after pushed
 
 Sometimes after sending a pull request you just realised that the you've made an error while writing a commit message and the project maintainer has asked you to rename it which you can do like this:
 
@@ -258,7 +258,7 @@ and then to push it back to the upstream and update your pull request which can 
 `git push --force origin newfeature`
 
 
-##Permanently removing commit from remote branch / Revert a commit already pushed to a remote repository
+## Permanently removing commit from remote branch / Revert a commit already pushed to a remote repository
 
 Reverting a commit means to create a new commit that undoes all changes that were made in the bad commit.
 You've just pushed your local branch to a remote branch, but then realized that one of the commits should not be there, or that there was some unacceptable typo in it. This can be fixed in many ways.
@@ -277,7 +277,7 @@ where `dd61ab32` is the commit id.
 
 - Revert the full commit with history rewriting 
   
-####Delete the last commit
+#### Delete the last commit
   
 Let's say we have a remote `https://github.com/harshitagupta30/open-event-android.git` with branch development that currently points to commit `dd61ab32`. We want to remove the top commit which we can do like this: 
 
@@ -295,7 +295,7 @@ Force-push it to the remote.
 
 `git push https://github.com/harshitagupta30/open-event-android.git -f` 
 
-####Delete the second last/any commit
+#### Delete the second last/any commit
  
 Let's say the bad commit `dd61ab32` is not the top commit, but a slightly older one, e.g. the second last one. You want to remove it, but keep all commits that followed it. In other words, you want to rewrite the history and force the result back to `remote/master`. The easiest way to rewrite history is to do an interactive rebase down to the parent of the offending commit like this:
 
@@ -319,7 +319,7 @@ Resolve any conflicts if there are any, and your local branch should be fixed. F
 
 
 
-###Renaming a branch
+### Renaming a branch
 You can rename the current branch like this: 
 
 `git branch -m old-name-of-branch-on-github new-name-for-branch-you-want`
